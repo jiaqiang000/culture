@@ -148,7 +148,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-center">
                   <i className="fas fa-map-marker-alt mr-2"></i>
-                  <span>中国传媒大学</span>
+                  <span>中国传媒大学梆子井4106</span>
                 </li>
               </ul>
               
