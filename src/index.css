@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* 中国传统色彩变量 */
+  --color-red-ink: #b91c1c;    /* 朱砂红 */
+  --color-blue-and-white: #1e40af;  /* 青花蓝 */
+  --color-rice-paper: #f8f0e3;  /* 宣纸白 */
+  --color-jade-green: #166534;  /* 翡翠绿 */
+  --color-gold: #d97706;        /* 赤金黄 */
+  --color-slate: #374151;       /* 墨玉黑 */
+  
+  font-family: "Noto Serif SC", "Microsoft YaHei", sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 全局样式 */
+body {
+  background-color: var(--color-rice-paper);
+  color: var(--color-slate);
+}
+
+/* 标题字体 */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Ma Shan Zheng", "KaiTi", serif;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-rice-paper);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-blue-and-white);
+  border-radius: 4px;
+}
+
+/* 卡片阴影 */
+.card-shadow {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-shadow:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* 按钮样式 */
+.traditional-btn {
+  background-color: var(--color-red-ink);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.traditional-btn:hover {
+  background-color: #991b1b;
+  transform: translateY(-2px);
+}
+
+.traditional-btn-outline {
+  border: 1px solid var(--color-red-ink);
+  color: var(--color-red-ink);
+  transition: all 0.3s ease;
+}
+
+.traditional-btn-outline:hover {
+  background-color: var(--color-red-ink);
+  color: white;
+}
+
+/* 渐变背景 */
+.gradient-bg {
+  background: linear-gradient(135deg, var(--color-blue-and-white), #3b82f6);
+}
+
+/* 水墨风格边框 */
+.ink-border {
+  position: relative;
+}
+
+.ink-border::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-red-ink), transparent);
+}
