@@ -271,28 +271,4 @@ export const featureModules = [
     color: "bg-green-700", // 翡翠绿
     link: "/daily",
   },
-  {
-    id: "module4",
-    title: "互动测验",
-    description: "检验学习成果，巩固知识记忆",
-    icon: "fas fa-question-circle",
-    color: "bg-amber-600", // 赤金黄
-    link: "/quiz",
-  },
-  {
-    id: "module5",
-    title: "礼仪顾问",
-    description: "了解传统礼仪，传承文化精髓",
-    icon: "fas fa-handshake",
-    color: "bg-purple-700", // 紫铜色
-    link: "/etiquette",
-  },
-  {
-    id: "module6",
-    title: "个人中心",
-    description: "查看学习进度，管理收藏内容",
-    icon: "fas fa-user",
-    color: "bg-slate-700", // 墨玉黑
-    link: "/profile",
-  },
 ];

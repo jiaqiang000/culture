@@ -3,9 +3,11 @@ import { Routes, Route } from "react-router-dom";
 import Home from "@/pages/Home";
 import Courses from "@/pages/Courses";
 import CourseDetail from "@/pages/CourseDetail";
+import DailyLearning from '@/pages/DailyLearning';
 import { useState } from "react";
 import { AuthContext } from '@/contexts/authContext';
 import { Empty } from "./components/Empty";
+
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -24,7 +26,7 @@ export default function App() {
         <Route path="/encyclopedia" element={<Encyclopedia />} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/courses/:id" element={<CourseDetail />} />
-        <Route path="/daily" element={<Empty />} />
+        <Route path="/daily" element={<DailyLearning />} />
         <Route path="/quiz" element={<Empty />} />
         <Route path="/etiquette" element={<Empty />} />
         <Route path="/profile" element={<Empty />} />
@@ -36,3 +38,5 @@ export default function App() {
   );
 }
 // <Route path="/encyclopedia" element={<Empty />} />
+// <Route path="/daily" element={<Empty />} />
+
