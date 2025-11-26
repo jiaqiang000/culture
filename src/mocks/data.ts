@@ -224,8 +224,8 @@ export const encyclopediaEntries: EncyclopediaEntry[] = [
 export const carouselItems: CarouselItem[] = [
   {
     id: "carousel1",
-    title: "中秋特别活动",
-    description: "参与中秋知识问答，赢取精美礼品",
+    title: "问答百科",
+    description: "搜索传统文化知识，获取专业解释",
     image: "https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_16_9&prompt=mid-autumn%20festival%20celebration%20traditional%20chinese%20culture&sign=bdc603c84d2a665b02e81edb73ab26ad",
     link: "/events/mid-autumn",
   },
@@ -238,8 +238,8 @@ export const carouselItems: CarouselItem[] = [
   },
   {
     id: "carousel3",
-    title: "每日签到",
-    description: "连续签到30天，获得限量版传统文化主题书签",
+    title: "每日学习",
+    description: "日积月累提升修养",
     image: "https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_16_9&prompt=traditional%20chinese%20bookmarks%20cultural&sign=acad24d67321cadccc1b51710cd7c355",
     link: "/daily/sign-in",
   },
@@ -266,7 +266,7 @@ export const featureModules = [
   {
     id: "module3",
     title: "每日学习",
-    description: "每日一句经典，日积月累提升修养",
+    description: "日积月累提升修养",
     icon: "fas fa-calendar-check",
     color: "bg-green-700", // 翡翠绿
     link: "/daily",

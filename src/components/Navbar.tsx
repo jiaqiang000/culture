@@ -47,37 +47,7 @@ export default function Navbar() {
               </motion.div>
             ))}
             
-            {/* 用户区域 */}
-            <div className="flex items-center space-x-4">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={toggleTheme}
-                className="p-2 rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors"
-                aria-label={theme === "light" ? "切换到暗色模式" : "切换到亮色模式"}
-              >
-                {theme === "light" ? (
-                  <i className="fas fa-moon"></i>
-                ) : (
-                  <i className="fas fa-sun"></i>
-                )}
-              </motion.button>
-              
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link
-                  to="/profile"
-                  className="p-2 rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors relative"
-                >
-                  <i className="fas fa-user"></i>
-                  <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-red-500 text-white text-xs flex items-center justify-center">
-                    3
-                  </span>
-                </Link>
-              </motion.div>
-            </div>
+            
           </nav>
           
           {/* Mobile menu button */}

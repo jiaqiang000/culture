@@ -61,15 +61,7 @@ export default function Home() {
           <DailyContent content={dailyContentData} />
         </section>
         
-        {/* 问答百科和主题小课 */}
-        <section className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-          <div className="lg:col-span-2">
-            <QnAEncyclopedia entries={encyclopediaEntries} />
-          </div>
-          <div>
-            <ThematicCourses courses={popularCourses} />
-          </div>
-        </section>
+
         
         {/* 学习数据统计 */}
         <section className="bg-white rounded-2xl p-6 md:p-8 shadow-md card-shadow">

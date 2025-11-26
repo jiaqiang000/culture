@@ -31,17 +31,7 @@ export default function DailyContent({ content }: DailyContentProps) {
       <div className="p-6">
         <div className="flex justify-between items-start mb-4">
           <h2 className="text-2xl font-bold text-slate-800">今日学习</h2>
-          <button 
-            onClick={handleCheckIn}
-            disabled={isCheckedIn}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-              isCheckedIn 
-                ? "bg-green-100 text-green-700 cursor-not-allowed" 
-                : "bg-blue-600 text-white hover:bg-blue-700"
-            }`}
-          >
-            {isCheckedIn ? "已签到" : "签到打卡"}
-          </button>
+
         </div>
         
         {/* 每日内容 */}
@@ -102,21 +92,7 @@ export default function DailyContent({ content }: DailyContentProps) {
           )}
         </div>
         
-        {/* 操作按钮 */}
-        <div className="flex justify-between pt-4 border-t border-slate-100">
-          <button className="text-slate-600 hover:text-slate-900 transition-colors flex items-center">
-            <i className="far fa-heart mr-1"></i>
-            <span>收藏</span>
-          </button>
-          <button className="text-slate-600 hover:text-slate-900 transition-colors flex items-center">
-            <i className="far fa-comment mr-1"></i>
-            <span>评论</span>
-          </button>
-          <button className="text-slate-600 hover:text-slate-900 transition-colors flex items-center">
-            <i className="fas fa-share-alt mr-1"></i>
-            <span>分享</span>
-          </button>
-        </div>
+
       </div>
     </motion.div>
   );
