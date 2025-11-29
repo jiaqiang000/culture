@@ -99,7 +99,7 @@ export default function Encyclopedia() {
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-2">问答百科</h1>
       <p className="text-slate-600 mb-4">
-        本页面已嵌入 Coze「传统文化助手」，下面的区域就是聊天框。
+        
       </p>
 
       {/*  聊天框要嵌入的容器 */}
