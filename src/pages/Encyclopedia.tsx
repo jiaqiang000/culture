@@ -28,7 +28,7 @@ export default function Encyclopedia() {
       client = new window.CozeWebSDK.WebChatClient({
         config: {
           type: "bot",
-          bot_id: "7575011934677499967", // 你的 bot_id
+          bot_id: "7576864361252126755", // 你的 bot_id 7575011934677499967
           isIframe: false,
         },
         componentProps: {
@@ -36,8 +36,8 @@ export default function Encyclopedia() {
         },
         auth: {
           type: "token",
-          token: "pat_h4Pf5PwqhlKBsixxAWCzPIqCUUqs9k20iqL41r4sSdzlWXbYwWn9VsQXqWH6e3lK",
-          onRefreshToken: async () => "pat_h4Pf5PwqhlKBsixxAWCzPIqCUUqs9k20iqL41r4sSdzlWXbYwWn9VsQXqWH6e3lK",
+          token: "pat_AVuqAUxI42fmvonOpk2sdMUWXKmZLQSEqjSNUxpx6p2LvE9uiZXUG3d1Qp4noB6V",
+          onRefreshToken: async () => "pat_AVuqAUxI42fmvonOpk2sdMUWXKmZLQSEqjSNUxpx6p2LvE9uiZXUG3d1Qp4noB6V",
         },
         ui: {
           base: {
