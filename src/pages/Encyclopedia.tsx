@@ -28,14 +28,18 @@ export default function Encyclopedia() {
       client = new window.CozeWebSDK.WebChatClient({
         config: {
           type: "bot",
-          bot_id: "7576864361252126755", // 你的 bot_id 7575011934677499967
+          bot_id: "7576864361252126755", // 你的 bot_id   //罗 7578177272390270991 
           isIframe: false,
         },
         componentProps: {
-          title: "传统文化助手",
+          title: "传统文化助手-小罗",
         },
         auth: {
           type: "token",
+          // 付
+          // pat_AVuqAUxI42fmvonOpk2sdMUWXKmZLQSEqjSNUxpx6p2LvE9uiZXUG3d1Qp4noB6V
+          //罗
+          // pat_KU9MFW9eh3zsRrSI4AoqmsgyjC3KzlFB7HEH6yC7oEfBfUSrYapE3yfCHLUUnRHF
           token: "pat_AVuqAUxI42fmvonOpk2sdMUWXKmZLQSEqjSNUxpx6p2LvE9uiZXUG3d1Qp4noB6V",
           onRefreshToken: async () => "pat_AVuqAUxI42fmvonOpk2sdMUWXKmZLQSEqjSNUxpx6p2LvE9uiZXUG3d1Qp4noB6V",
         },
@@ -51,7 +55,7 @@ export default function Encyclopedia() {
           },
           // 把聊天框挂到当前页面的容器上，实现“嵌入”
           chatBot: {
-            title: "传统文化助手",
+            title: "传统文化助手-小罗",
             width: 460,
             el: chatContainerRef.current,
           },
