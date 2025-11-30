@@ -47,87 +47,90 @@ const DailyLearning: React.FC = () => {
 
         for await (const part of stream) {
           const data = part.data;
-          
+              
           if (data && data.content) {
             try {
               if (data.content === '{}') continue;
 
               const parsedContent = JSON.parse(data.content);
               
-              // 1. 获取文字内容 (Output)
+              // 1. 获取文字内容
               const outputText = parsedContent.output || "";
 
-              // -------------------------------------------------------
-              // 2. 新增：获取 Headline (标题)
-              // -------------------------------------------------------
+              // 2. 获取 headline
               const headlineText = parsedContent.headline || "";
               console.log("📰 [获取到标题 Headline]:", headlineText);
 
-              // -------------------------------------------------------
-              // 3. 获取视频内容 (VideoOutput)
-              // -------------------------------------------------------
-              const videoList = parsedContent.videoOutput;
-              let bvid = "";
-              let coverImage = "https://images.unsplash.com/photo-1578458804373-c6463943f671?q=80&w=2070&auto=format&fit=crop";
+              // 3. 新增：获取 Coze 自带的 imageUrl
+              const cozeImageUrl: string | undefined = parsedContent.imageUrl;
+              console.log("🖼 [获取到 Coze imageUrl]:", cozeImageUrl);
 
-              // ---> 调试 Video
+              // 4. 获取视频列表
+              const videoList = parsedContent.videoOutput;
+
+              let bvid = "";
+              // 先默认用 Coze 的 imageUrl，如果没有再用兜底图
+              let coverImage =
+                cozeImageUrl && cozeImageUrl.trim().length > 0
+                  ? cozeImageUrl
+                  : "https://images.unsplash.com/photo-1578458804373-c6463943f671?q=80&w=2070&auto=format&fit=crop";
+
               console.log("🎬 [原始 videoOutput 数据]:", videoList);
 
               if (Array.isArray(videoList) && videoList.length > 0) {
-                  const firstVideo = videoList[0];
-                  
-                  if (firstVideo.bvid) {
-                      bvid = firstVideo.bvid;
-                      console.log("🆔 [成功提取 BVID]:", bvid);
+                const firstVideo = videoList[0];
+
+                if (firstVideo.bvid) {
+                  bvid = firstVideo.bvid;
+                  console.log("🆔 [成功提取 BVID]:", bvid);
+                }
+
+                // ⚠️ 只有当上面没有从 Coze 拿到 imageUrl 时，才用 B 站封面兜底
+                if ((!cozeImageUrl || cozeImageUrl.trim().length === 0) && firstVideo.pic) {
+                  if (firstVideo.pic.startsWith('//')) {
+                    coverImage = `https:${firstVideo.pic}`;
+                  } else {
+                    coverImage = firstVideo.pic;
                   }
-                  
-                  if (firstVideo.pic) {
-                      if (firstVideo.pic.startsWith('//')) {
-                          coverImage = `https:${firstVideo.pic}`;
-                      } else {
-                          coverImage = firstVideo.pic;
-                      }
-                  }
+                }
               }
 
               if (!outputText) continue;
 
-              // --- 这里的 title 是原逻辑用于图片遮罩显示的（从文本第一行提取）---
-              // 你也可以选择直接让图片上的字也变成 headline，如果需要保持一致，可以将 displayTitle 赋值为 headlineText
+              // 生成 displayTitle（保持你原来的逻辑）
               const lines = outputText.split('\n');
               let generatedTitle = "每日学习";
 
               if (lines.length > 0) {
-                 const firstLine = lines[0].trim();
-                 if (firstLine.includes('#')) {
-                    generatedTitle = firstLine.replace(/[#\s]/g, '');
-                 } else if (firstLine.length > 0 && firstLine.length < 20) {
-                    generatedTitle = firstLine;
-                 }
+                const firstLine = lines[0].trim();
+                if (firstLine.includes('#')) {
+                  generatedTitle = firstLine.replace(/[#\s]/g, '');
+                } else if (firstLine.length > 0 && firstLine.length < 20) {
+                  generatedTitle = firstLine;
+                }
               }
 
               setContent({
-                displayTitle: generatedTitle, // 图片上的文字
-                headline: headlineText,       // 正文上方的文字
+                displayTitle: generatedTitle, // 顶部图片上的字
+                headline: headlineText,       // 正文上方大标题
                 body: outputText,
-                imageUrl: coverImage,
+                imageUrl: coverImage,         // ✅ 现在优先用 Coze 的 imageUrl
                 bvid: bvid,
               });
-              
-              setLoading(false); 
-              
+
+              setLoading(false);
+
             } catch (e) {
-               console.warn("⚠️ 解析出错", e); 
-               // 兜底逻辑
-               if (data.content.length > 5) {
-                   setContent({
-                       displayTitle: "每日文化",
-                       headline: "今日分享",
-                       body: data.content,
-                       imageUrl: "https://images.unsplash.com/photo-1578458804373-c6463943f671?q=80&w=2070&auto=format&fit=crop",
-                   });
-                   setLoading(false);
-               }
+              console.warn("⚠️ 解析出错", e);
+              if (data.content.length > 5) {
+                setContent({
+                  displayTitle: "每日文化",
+                  headline: "今日分享",
+                  body: data.content,
+                  imageUrl: "https://images.unsplash.com/photo-1578458804373-c6463943f671?q=80&w=2070&auto=format&fit=crop",
+                });
+                setLoading(false);
+              }
             }
           }
         }
