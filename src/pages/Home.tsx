@@ -26,32 +26,6 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // -----------------------------------------------------------------------
-  // 修改部分：为轮播图数据添加跳转链接 (link)
-  // 根据你的项目结构，这里假设了三个主要页面的路由路径
-  // -----------------------------------------------------------------------
-  const itemsWithLinks = carouselItems.map((item, index) => {
-    // 假设轮播图第一张是课程，第二张是每日学习，第三张是问答百科（根据实际顺序调整）
-    // 如果你的 carouselItems 顺序不同，请调整这里的 index
-    let targetLink = "/";
-
-    if (index === 0) {
-      // 截图显示第一张是“新课程上线”，跳转到课程列表
-      targetLink = "/encyclopedia"; 
-    } else if (index === 1) {
-      // 假设第二张是每日学习
-      targetLink = "courses/"; 
-    } else if (index === 2) {
-      // 假设第三张是问答百科
-      targetLink = "daily/"; 
-    }
-
-    return {
-      ...item,
-      link: targetLink, // 确保 HeroCarousel 组件内部使用了这个 link 属性来做跳转
-    };
-  });
-  
   return (
     <div className="min-h-screen bg-[var(--color-rice-paper)]">
       {/* 导航栏 */}
@@ -62,7 +36,7 @@ export default function Home() {
         {/* 轮播 */}
         <section className="mb-16">
           {/* 将处理过带 link 的数据传递给组件 */}
-          <HeroCarousel items={itemsWithLinks} />
+          <HeroCarousel items={carouselItems} />
         </section>
         
         {/* 功能卡片 */}
